@@ -1,0 +1,237 @@
+@use '../../../../styles/tokens' as *;
+
+// Header Skeleton
+.header {
+  margin-bottom: $spacing-4;
+}
+
+// Title Section Skeleton
+.titleSection {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-6;
+  margin-bottom: $spacing-6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-6;
+  min-height: 109px;
+}
+
+.titleContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+
+// Evidence Summary Skeletons
+.evidenceSummary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-4;
+  margin-bottom: $spacing-6;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.evidenceCard {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-4;
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+  width: 272px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+  flex: 1;
+}
+
+// Tabs Skeleton
+.tabs {
+  margin-bottom: $spacing-6;
+}
+
+// Content Sections Skeleton
+.content {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-6;
+  margin-bottom: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 148px 1fr;
+  gap: $spacing-4;
+  margin-bottom: $spacing-6;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+}
+
+// Leaders Section Skeleton
+.leadersSection {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-6;
+  margin-bottom: $spacing-6;
+}
+
+.leadersGrid {
+  display: flex;
+  gap: $spacing-6;
+  flex-wrap: wrap;
+  margin-top: $spacing-5;
+}
+
+.leaderCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  width: 225px;
+  height: 63px;
+  background-color: #F5F8FA;
+  border-radius: 10px;
+  padding: $spacing-3;
+}
+
+.leaderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 141px;
+}
+
+// Evidence Table Skeleton
+.evidenceTable {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-6;
+  margin-bottom: $spacing-6;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: $spacing-4;
+  padding: $spacing-3 0;
+  border-bottom: 1px solid #E0E8ED;
+  margin: $spacing-5 0;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: $spacing-4;
+  padding: $spacing-3 0;
+  border-bottom: 1px solid #E0E8ED;
+}
+
+// Comments Section Skeleton
+.commentsSection {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-6;
+  height: max-content;
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+  margin: $spacing-6 0;
+}
+
+.commentItem {
+  display: flex;
+  gap: $spacing-3;
+  align-items: flex-start;
+}
+
+.commentContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-2;
+}
+
+.commentInput {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+  border-top: 1px solid #E0E8ED;
+  padding-top: $spacing-5;
+  margin-top: $spacing-5;
+}
+
+// Activities Section Skeleton
+.activitiesSection {
+  background-color: $color-neutral-0;
+  padding: $spacing-6;
+  border-radius: 10px;
+  border: 1px solid #E0E8ED;
+  height: max-content;
+}
+
+.activitiesList {
+  margin-top: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.activityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-3;
+  border-top: 1px solid #E0E8ED;
+  padding-top: $spacing-4;
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+.activityContent {
+  flex: 1;
+  min-width: 0;
+}

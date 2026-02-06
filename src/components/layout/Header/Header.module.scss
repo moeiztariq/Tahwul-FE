@@ -1,0 +1,127 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.header {
+  height: 64px;
+  background-color: $color-neutral-0;
+  border-bottom: 1px solid #E0E8ED;
+  @include flex-between;
+  padding: 0 $spacing-6;
+  gap: $spacing-4;
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8597A8;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 40px;
+  padding: 0 16px 0 48px;
+  border: 1px solid #E0E8ED;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-project-primary;
+  background-color: #F8FAFC;
+  outline: none;
+  @include transition(all);
+
+  &::placeholder {
+    color: #8597A8;
+  }
+
+  &:focus {
+    background-color: $color-neutral-0;
+    border-color: $color-project-primary;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+  margin-left: auto;
+}
+
+.notificationButton {
+  @include button-reset;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: $color-project-primary;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.notificationBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: #DC2626;
+  border-radius: 50%;
+  border: 2px solid $color-neutral-0;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: $spacing-2 $spacing-3;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  object-fit: cover;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-project-primary;
+
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}
+
+.dropdownIcon {
+  color: $color-project-primary;
+  flex-shrink: 0;
+
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}

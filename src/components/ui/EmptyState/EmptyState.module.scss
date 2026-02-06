@@ -1,0 +1,85 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.container {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $spacing-12;
+
+  &.size-sm {
+    padding: $spacing-8;
+  }
+
+  &.size-md {
+    padding: $spacing-12;
+  }
+
+  &.size-lg {
+    padding: $spacing-16;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: $spacing-4;
+  color: $color-neutral-400;
+  font-size: 2rem;
+
+  .size-sm & {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .size-lg & {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+}
+
+.content {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-2;
+  max-width: 400px;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-neutral-900;
+
+  .size-sm & {
+    font-size: $font-size-base;
+  }
+
+  .size-lg & {
+    font-size: $font-size-xl;
+  }
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $color-neutral-600;
+  line-height: $line-height-relaxed;
+  margin: 0;
+
+  .size-sm & {
+    font-size: $font-size-xs;
+  }
+
+  .size-lg & {
+    font-size: $font-size-base;
+  }
+}
+
+.action {
+  margin-top: $spacing-4;
+}

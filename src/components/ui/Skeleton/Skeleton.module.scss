@@ -1,0 +1,21 @@
+@use '../../../styles/tokens' as *;
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #E0E8ED 25%,
+    #F5F8FA 50%,
+    #E0E8ED 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

@@ -1,0 +1,53 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-lg;
+  background-color: $color-primary-50;
+  font-size: $font-size-2xl;
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-neutral-600;
+  margin: 0 0 $spacing-1;
+}
+
+.value {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-neutral-900;
+  margin: 0;
+  line-height: $line-height-tight;
+}
+
+.trend {
+  display: inline-block;
+  margin-top: $spacing-2;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  &.positive {
+    color: $color-success-600;
+  }
+
+  &.negative {
+    color: $color-error-600;
+  }
+}

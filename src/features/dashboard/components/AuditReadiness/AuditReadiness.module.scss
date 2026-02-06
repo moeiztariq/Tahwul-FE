@@ -1,0 +1,83 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.container {
+  background-color: $color-neutral-0;
+  padding: $spacing-6;
+  border-radius: 10px;
+  border: 1px solid $color-project-border;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-project-primary;
+  margin: 0 0 $spacing-4;
+  text-align: left;
+}
+
+.gaugeWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin-bottom: $spacing-4;
+  padding-bottom: $spacing-6;
+  border-bottom: 1px solid $color-project-border;
+}
+
+.scoreValue {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.percentage {
+  font-size: 48px;
+  font-weight: 700;
+  color: $color-project-primary;
+  line-height: 1;
+}
+
+.unit {
+  font-size: 24px;
+  font-weight: 700;
+  color: $color-project-primary;
+  margin-left: 4px;
+}
+
+.baseline {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-size: 14px;
+  color: $color-project-secondary;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  gap: $spacing-4;
+}
+
+.stat {
+  text-align: center;
+}
+
+.statValue {
+  font-size: 32px;
+  font-weight: 700;
+  color: $color-project-primary;
+  margin-bottom: $spacing-1;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: $color-project-secondary;
+}

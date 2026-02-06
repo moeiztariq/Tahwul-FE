@@ -1,0 +1,79 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.container {
+  background-color: $color-neutral-0;
+  padding: $spacing-6;
+  border-radius: 10px;
+  border: 1px solid $color-project-border;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-project-primary;
+  margin: 0 0 $spacing-6;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.item {
+  display: flex;
+  gap: $spacing-3;
+  align-items: flex-start;
+  padding-top: $spacing-4;
+  padding-bottom: $spacing-4;
+
+  border-top: 1px solid $color-project-border;
+  
+//   &:first-child {
+//     padding-top: 0;
+//     border-top: none;
+//   }
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #DC2626;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $spacing-2;
+  margin-bottom: 4px;
+}
+
+.activityTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-project-primary;
+  margin: 0;
+}
+
+.time {
+  font-size: 12px;
+  color: $color-project-secondary;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.description {
+  font-size: 14px;
+  color: $color-project-secondary;
+  margin: 0;
+}

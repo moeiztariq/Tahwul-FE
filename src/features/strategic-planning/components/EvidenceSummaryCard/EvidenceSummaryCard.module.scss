@@ -1,0 +1,85 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.card {
+  background-color: $color-neutral-0;
+  border: 1px solid $color-project-border;
+  border-radius: 10px;
+  padding: $spacing-5;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.count {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-project-secondary;
+  line-height: 1.2;
+}
+
+// Status-specific styles
+.total {
+  .icon {
+    color: #DC2626;
+  }
+  .count {
+    color: $color-project-primary;
+  }
+}
+
+.under-review {
+  .icon {
+    color: #DC2626;
+  }
+  .count {
+    color: $color-project-primary;
+  }
+}
+
+.in-progress {
+  .icon {
+    color: #DC2626;
+  }
+  .count {
+    color: $color-project-primary;
+  }
+}
+
+.completed {
+  .icon {
+    color: #22C55E;
+  }
+  .count {
+    color: $color-project-primary;
+  }
+}

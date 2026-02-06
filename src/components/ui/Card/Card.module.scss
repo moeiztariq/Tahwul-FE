@@ -1,0 +1,66 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.card {
+  background-color: $color-neutral-0;
+  border-radius: $radius-lg;
+  @include transition(box-shadow);
+
+  &.variant-default {
+    border: 1px solid $color-neutral-200;
+  }
+
+  &.variant-bordered {
+    border: 2px solid $color-neutral-300;
+  }
+
+  &.variant-elevated {
+    border: 1px solid $color-neutral-200;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &.padding-none {
+    padding: 0;
+  }
+
+  &.padding-sm {
+    padding: $spacing-3;
+  }
+
+  &.padding-md {
+    padding: $spacing-4;
+  }
+
+  &.padding-lg {
+    padding: $spacing-6;
+  }
+}
+
+.header {
+  @include flex-between;
+  gap: $spacing-4;
+  margin-bottom: $spacing-4;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-neutral-900;
+  line-height: $line-height-tight;
+}
+
+.content {
+  color: $color-neutral-700;
+}
+
+.footer {
+  @include flex-between;
+  gap: $spacing-4;
+  margin-top: $spacing-4;
+  padding-top: $spacing-4;
+  border-top: 1px solid $color-neutral-200;
+}

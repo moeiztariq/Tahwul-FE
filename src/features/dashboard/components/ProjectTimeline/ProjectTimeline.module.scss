@@ -1,0 +1,153 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.container {
+  background-color: $color-neutral-0;
+  padding: $spacing-6;
+  border-radius: 10px;
+  margin-bottom: $spacing-6;
+  border: 1px solid #E0E8ED;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-8;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1D3557;
+  margin: 0;
+  line-height: 16px;
+  text-transform: capitalize;
+}
+
+.yearButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 40px;
+  padding: 8px 16px 8px 20px;
+  font-family: $font-family-sans;
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-project-primary;
+  cursor: pointer;
+  outline: none;
+  min-width: 120px;
+  @include transition(all);
+
+  &:hover {
+    border-color: $color-project-primary;
+  }
+
+  &:focus {
+    border-color: $color-project-primary;
+    box-shadow: 0 0 0 3px rgba(29, 53, 87, 0.1);
+  }
+}
+
+.dropdownIcon {
+  color: $color-project-primary;
+  flex-shrink: 0;
+}
+
+.timeline {
+  position: relative;
+  padding-top: 0;
+}
+
+.progressBar {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background-color: #E0E8ED;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  width: 40%;
+  background-color: #1EA54E;
+  border-radius: 10px;
+  animation: fillProgress 1.5s ease-out forwards;
+  @include transition(width);
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 40%;
+  }
+}
+
+.milestones {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-1;
+  flex: 1;
+  position: relative;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: $radius-full;
+//   border: 3px solid $color-neutral-0;
+  z-index: 2;
+  margin-top: 22px;
+//   margin-bottom: $spacing-2;
+  
+  &.completed {
+    background-color: white;
+  }
+  
+  &.current {
+    background-color: #EF4444;
+  }
+  
+  &.upcoming {
+    background-color: #EF4444;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-1;
+  text-align: center;
+  margin-top: $spacing-4;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 400;
+  color: #8597A8;
+  line-height: 16px;
+  text-transform: capitalize;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1D3557;
+  line-height: 16px;
+  text-transform: capitalize;
+}

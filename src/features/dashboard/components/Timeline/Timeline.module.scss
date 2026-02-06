@@ -1,0 +1,74 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.item {
+  display: flex;
+  gap: $spacing-4;
+  padding-bottom: $spacing-6;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.marker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: $spacing-1;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: $radius-full;
+  background-color: $color-primary-500;
+  border: 2px solid $color-neutral-0;
+  box-shadow: 0 0 0 2px $color-primary-500;
+  flex-shrink: 0;
+}
+
+.line {
+  flex: 1;
+  width: 2px;
+  min-height: 100%;
+  background-color: $color-neutral-200;
+  margin-top: $spacing-2;
+}
+
+.content {
+  flex: 1;
+  padding-top: 0;
+}
+
+.header {
+  @include flex-between;
+  gap: $spacing-3;
+  margin-bottom: $spacing-2;
+}
+
+.title {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-neutral-900;
+  margin: 0;
+}
+
+.date {
+  font-size: $font-size-sm;
+  color: $color-neutral-600;
+  margin: 0 0 $spacing-1;
+}
+
+.perspective {
+  font-size: $font-size-xs;
+  color: $color-neutral-500;
+  margin: 0;
+}

@@ -1,0 +1,128 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.container {
+  background-color: $color-neutral-0;
+  border: 1px solid $color-project-border;
+  border-radius: 10px;
+  padding: $spacing-6;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-project-primary;
+  margin: 0 0 $spacing-6;
+}
+
+.commentsList {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+}
+
+.comment {
+  display: flex;
+  gap: $spacing-3;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #E0E8ED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-project-primary;
+  flex-shrink: 0;
+}
+
+.commentContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.author {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-project-primary;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: $color-project-secondary;
+}
+
+.text {
+  font-size: 14px;
+  color: $color-project-secondary;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.postComment {
+  margin-top: auto;
+}
+
+.textarea {
+  width: 100%;
+  padding: $spacing-3;
+  border: 1px solid $color-project-border;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: $font-family-sans;
+  color: $color-project-primary;
+  resize: vertical;
+  margin-bottom: $spacing-3;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: $color-project-primary;
+  }
+
+  &::placeholder {
+    color: $color-project-secondary;
+  }
+}
+
+.postButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  background-color: $color-project-primary;
+  color: $color-neutral-0;
+  border: none;
+  padding: $spacing-2 $spacing-4;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}

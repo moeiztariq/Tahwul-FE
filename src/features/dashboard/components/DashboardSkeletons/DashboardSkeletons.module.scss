@@ -1,0 +1,203 @@
+@use '../../../../styles/tokens' as *;
+
+// Timeline Skeleton
+.timelineContainer {
+  background-color: $color-neutral-0;
+  padding: $spacing-6;
+  border-radius: 10px;
+  margin-bottom: $spacing-6;
+  border: 1px solid #E0E8ED;
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-8;
+}
+
+.milestonesContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: $spacing-6;
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-2;
+}
+
+// StatCard Skeleton
+.statCard {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-4;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+}
+
+// Progress Grid Skeleton
+.progressGrid {
+  background-color: $color-neutral-0;
+  padding: $spacing-6;
+  border-radius: 10px;
+  margin-bottom: $spacing-6;
+  border: 1px solid #E0E8ED;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-6;
+  flex-wrap: wrap;
+  gap: $spacing-4;
+}
+
+.legend {
+  display: flex;
+  gap: $spacing-4;
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+}
+
+.summaryCards {
+  display: flex;
+  gap: $spacing-3;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-6;
+}
+
+.detailCards {
+  display: flex;
+  gap: $spacing-3;
+  flex-wrap: wrap;
+}
+
+// Compliance/Audit Skeleton
+.complianceCard,
+.auditCard {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-5;
+}
+
+.chartArea,
+.auditChart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-6;
+}
+
+.auditStats {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Leaders Skeleton
+.leadersCard {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-6;
+}
+
+.leadersList {
+  margin-top: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.leaderItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+}
+
+.leaderInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+}
+
+// Chart Skeleton
+.chartCard {
+  background-color: $color-neutral-0;
+  border: 1px solid #E0E8ED;
+  border-radius: 10px;
+  padding: $spacing-6;
+}
+
+.chartArea {
+  margin-top: $spacing-6;
+}
+
+// Activities Skeleton
+.activitiesCard {
+  background-color: $color-neutral-0;
+  padding: $spacing-6;
+  border-radius: 10px;
+  border: 1px solid #E0E8ED;
+  height: max-content;
+  margin-bottom: $spacing-6;
+}
+
+.activitiesList {
+  margin-top: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.activityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-3;
+  padding-top: $spacing-4;
+  border-top: 1px solid #E0E8ED;
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+.activityContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+}

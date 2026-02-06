@@ -1,0 +1,202 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: $spacing-6;
+  background-color: #F8FAFC;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: $spacing-4;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-project-primary;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.titleSection {
+  background-color: $color-neutral-0;
+  border: 1px solid $color-project-border;
+  border-radius: 10px;
+  padding: $spacing-6;
+  margin-bottom: $spacing-6;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $spacing-6;
+}
+
+.titleContent {
+  flex: 1;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  font-weight: 400;
+  color: $color-project-secondary;
+  margin-bottom: $spacing-2;
+  border: 1px solid $color-project-border;
+  border-radius: 10px;
+  padding: 4px 12px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: $color-project-primary;
+  margin: 0 0 $spacing-2 0;
+  line-height: 1.4;
+}
+
+.description {
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-project-secondary;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.completionBadge {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.completionValue {
+  font-size: 14px;
+  font-weight: 700;
+  color: $color-project-primary;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.evidenceSummary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-4;
+  margin-bottom: $spacing-6;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tabs {
+  width: 225px;
+  height: 40px;
+  background-color: rgba(224, 232, 237, 0.5);
+  border-radius: 8px;
+  padding: 3px;
+  display: flex;
+  gap: 6px;
+  margin-bottom: $spacing-6;
+}
+
+.tab {
+  flex: 1;
+  background-color: rgba(224, 232, 237, 0.5);
+  border: none;
+  padding: 7px 15px;
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-project-secondary;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+  text-transform: capitalize;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &.active {
+    background-color: $color-neutral-0;
+    color: $color-project-primary;
+  }
+}
+
+.content {
+  background-color: $color-neutral-0;
+  border: 1px solid $color-project-border;
+  border-radius: 10px;
+  padding: $spacing-6;
+  margin-bottom: $spacing-6;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: calc($spacing-6 + 148px + 16px);
+    top: $spacing-6;
+    bottom: $spacing-6;
+    width: 1px;
+    background-color: $color-project-border;
+  }
+}
+
+.evidenceContent {
+  margin-bottom: $spacing-6;
+}
+
+.evidenceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-6;
+  
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.leadersSection {
+  background-color: $color-neutral-0;
+  border: 1px solid $color-project-border;
+  border-radius: 10px;
+  padding: $spacing-6;
+}
+
+.leadersTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-project-primary;
+  margin: 0 0 $spacing-5 0;
+}
+
+.leadersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: $spacing-5;
+}

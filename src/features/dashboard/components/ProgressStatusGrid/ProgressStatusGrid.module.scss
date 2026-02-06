@@ -1,0 +1,195 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.container {
+  background-color: $color-neutral-0;
+  padding: $spacing-6;
+  border-radius: 10px;
+  margin-bottom: $spacing-6;
+  border: 1px solid $color-project-border;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-6;
+  flex-wrap: wrap;
+  gap: $spacing-4;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-project-primary;
+  margin: 0;
+}
+
+.legend {
+  display: flex;
+  gap: $spacing-4;
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  font-size: 12px;
+  color: $color-project-secondary;
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+// Summary Cards
+.summaryGrid {
+  display: flex;
+  gap: $spacing-3;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-6;
+}
+
+.columnCard {
+  background-color: $color-project-primary;
+  border-radius: 10px;
+  flex: 1;
+  min-width: 96px;
+  height: 90px;
+  padding: 0.7rem;
+  color: $color-neutral-0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.columnHeader {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-1;
+  flex: 1;
+  justify-content: center;
+}
+
+.columnTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: $color-neutral-0;
+  margin: 0;
+  line-height: 14px;
+  text-align: center;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.percentageContainer {
+  background-color: #FFFFFF1A;
+  border-radius: 10px;
+  padding: 3px 10px;
+  width: 63px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.percentage {
+  font-size: 11px;
+  font-weight: 700;
+  color: $color-neutral-0;
+  line-height: 14px;
+  text-align: center;
+}
+
+// Detailed Cards Grid - 10 Columns Layout
+.detailGrid {
+  display: flex;
+  gap: $spacing-3;
+  flex-wrap: wrap;
+}
+
+.detailColumn {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+  flex: 1;
+  min-width: 96px;
+}
+
+.detailCard {
+  background-color: #FFFFFF;
+  border: 1px solid $color-project-border;
+  border-radius: 10px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+//   justify-content: space-between;
+  align-items: center;
+}
+
+// Card height based on number of cards in column
+.card3 {
+  height: 109px;
+}
+
+.card2 {
+  height: 170px;
+}
+
+.card1 {
+  height: 342px;
+}
+
+.cardTitle {
+  font-size: 10px;
+  font-weight: 700;
+  color: $color-project-primary;
+  line-height: 12px;
+  text-align: center;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.circlesContainer {
+  display: flex;
+  gap: 8px;
+  // justify-content: center;
+  align-items: center;
+}
+
+.circlesMarginTop {
+  margin-top: 100px;
+}
+
+// Layout for 2 or fewer circles - single row
+.circlesRow {
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+// Layout for more than 2 circles - two columns
+.circlesColumns {
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 60px; // 2 circles (24px each) + gap (8px) + some margin
+}
+
+.numberedCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}

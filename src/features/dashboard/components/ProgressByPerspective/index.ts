@@ -1,0 +1,1 @@
+export { ProgressByPerspective } from './ProgressByPerspective';

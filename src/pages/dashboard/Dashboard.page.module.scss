@@ -1,0 +1,52 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.statsGrid {
+  display: flex;
+  gap: $spacing-4;
+  margin-bottom: $spacing-6;
+  flex-wrap: wrap;
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: $spacing-6;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.complianceSection {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.leadersSection {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.rightColumn {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.performanceChartSection {
+  grid-column: 1 / 3;
+  grid-row: 2;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

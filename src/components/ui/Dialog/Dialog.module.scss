@@ -1,0 +1,94 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: $z-index-modal-backdrop;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn $transition-base;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.content {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: $z-index-modal;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  transform: translate(-50%, -50%);
+  background-color: $color-neutral-0;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-2xl;
+  animation: slideIn $transition-base;
+  max-height: 85vh;
+  overflow-y: auto;
+  @include custom-scrollbar;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -48%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.size-sm {
+    max-width: 400px;
+  }
+
+  &.size-md {
+    max-width: 600px;
+  }
+
+  &.size-lg {
+    max-width: 800px;
+  }
+
+  &.size-xl {
+    max-width: 1000px;
+  }
+}
+
+.header {
+  padding: $spacing-6 $spacing-6 $spacing-4;
+  border-bottom: 1px solid $color-neutral-200;
+}
+
+.footer {
+  @include flex-between;
+  gap: $spacing-3;
+  padding: $spacing-4 $spacing-6 $spacing-6;
+  border-top: 1px solid $color-neutral-200;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-neutral-900;
+  line-height: $line-height-tight;
+}
+
+.description {
+  margin-top: $spacing-2;
+  font-size: $font-size-sm;
+  color: $color-neutral-600;
+  line-height: $line-height-normal;
+}

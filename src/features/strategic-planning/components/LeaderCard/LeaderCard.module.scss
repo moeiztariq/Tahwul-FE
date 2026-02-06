@@ -1,0 +1,60 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 225px;
+  height: 63.107px;
+  background-color: #F5F8FA;
+  border-radius: 10px;
+  padding: $spacing-2;
+}
+
+.avatar {
+  width: 47.107px;
+  height: 47.107px;
+  border-radius: 50%;
+  background-color: #E5E7EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarInitial {
+  font-size: 18px;
+  font-weight: 600;
+  color: $color-project-primary;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-project-primary;
+  line-height: 22px;
+  text-transform: capitalize;
+}
+
+.role {
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-project-secondary;
+  line-height: 22px;
+  text-transform: capitalize;
+}

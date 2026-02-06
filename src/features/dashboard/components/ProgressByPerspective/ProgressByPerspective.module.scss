@@ -1,0 +1,48 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+}
+
+.header {
+  @include flex-between;
+  gap: $spacing-4;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+}
+
+.icon {
+  font-size: $font-size-2xl;
+}
+
+.name {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-neutral-900;
+  margin: 0;
+}
+
+.count {
+  font-size: $font-size-sm;
+  color: $color-neutral-500;
+  margin: $spacing-1 0 0;
+}
+
+.percentage {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-neutral-900;
+}

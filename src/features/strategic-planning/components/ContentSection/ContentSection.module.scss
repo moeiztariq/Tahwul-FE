@@ -1,0 +1,69 @@
+@use '../../../../styles/tokens' as *;
+@use '../../../../styles/mixins' as *;
+
+.section {
+  display: grid;
+  grid-template-columns: 148px 1fr;
+  gap: 0;
+  padding: 0;
+  margin: $spacing-5 0;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $spacing-3;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: flex-start;
+  padding-right: $spacing-4;
+}
+
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-project-primary;
+  margin: 0;
+  line-height: 1.5;
+  background-color: #1B35570D;
+  border-radius: 10px;
+  padding: $spacing-3;
+  width: 148px;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #1B35570D;
+  border-radius: 10px;
+  padding: $spacing-3;
+  margin-left: calc($spacing-4 + 1px + $spacing-4);
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-project-primary;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+}
+
+.listItem {
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-project-primary;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 0;
+}

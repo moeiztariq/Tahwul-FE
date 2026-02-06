@@ -1,0 +1,68 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+  width: 100%;
+}
+
+.root {
+  position: relative;
+  overflow: hidden;
+  background-color: $color-neutral-200;
+  border-radius: $radius-full;
+  flex: 1;
+
+  &.size-sm {
+    height: 4px;
+  }
+
+  &.size-md {
+    height: 8px;
+  }
+
+  &.size-lg {
+    height: 12px;
+  }
+}
+
+.indicator {
+  height: 100%;
+  width: 100%;
+  border-radius: $radius-full;
+  transition: transform $transition-slow;
+
+  .variant-primary & {
+    background-color: $color-primary-500;
+  }
+
+  .variant-secondary & {
+    background-color: $color-neutral-500;
+  }
+
+  .variant-success & {
+    background-color: $color-success-500;
+  }
+
+  .variant-warning & {
+    background-color: $color-warning-500;
+  }
+
+  .variant-error & {
+    background-color: $color-error-500;
+  }
+
+  .variant-info & {
+    background-color: $color-info-500;
+  }
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-neutral-700;
+  min-width: 3rem;
+  text-align: right;
+}
