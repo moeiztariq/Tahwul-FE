@@ -1,0 +1,118 @@
+@use 'sass:color';
+@import '../../styles/tokens.scss';
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: $spacing-6;
+  background-color: $color-neutral-50;
+}
+
+.errorContent {
+  max-width: 600px;
+  text-align: center;
+  background-color: $color-neutral-0;
+  padding: $spacing-12;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+}
+
+.errorIcon {
+  color: $color-error-500;
+  margin-bottom: $spacing-6;
+}
+
+.errorTitle {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-neutral-900;
+  margin-bottom: $spacing-4;
+}
+
+.errorMessage {
+  font-size: $font-size-lg;
+  color: $color-neutral-600;
+  margin-bottom: $spacing-8;
+  line-height: $line-height-relaxed;
+}
+
+.errorDetails {
+  text-align: left;
+  margin-top: $spacing-6;
+  padding: $spacing-4;
+  background-color: $color-neutral-100;
+  border-radius: $radius-md;
+  border: 1px solid $color-neutral-300;
+
+  summary {
+    cursor: pointer;
+    font-weight: $font-weight-medium;
+    color: $color-neutral-700;
+    margin-bottom: $spacing-2;
+    
+    &:hover {
+      color: $color-neutral-900;
+    }
+  }
+
+  pre {
+    font-size: $font-size-sm;
+    color: $color-error-700;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-top: $spacing-2;
+  }
+}
+
+.errorActions {
+  display: flex;
+  gap: $spacing-4;
+  justify-content: center;
+  margin-top: $spacing-6;
+}
+
+.primaryButton {
+  padding: $spacing-3 $spacing-6;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-neutral-0;
+  background-color: $color-project-primary;
+  border: none;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: color.adjust($color-project-primary, $lightness: -10%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-project-primary;
+    outline-offset: 2px;
+  }
+}
+
+.secondaryButton {
+  padding: $spacing-3 $spacing-6;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-neutral-700;
+  background-color: $color-neutral-0;
+  border: 1px solid $color-neutral-300;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $color-neutral-100;
+    border-color: $color-neutral-400;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-project-primary;
+    outline-offset: 2px;
+  }
+}

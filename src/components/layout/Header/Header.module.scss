@@ -10,6 +10,30 @@
   gap: $spacing-4;
 }
 
+.menuButton {
+  @include button-reset;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: $color-project-primary;
+  margin-right: $spacing-2;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    display: flex;
+  }
+}
+
 .searchContainer {
   position: relative;
   width: 100%;

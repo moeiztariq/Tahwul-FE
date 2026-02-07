@@ -73,20 +73,10 @@
 
 .progressFill {
   height: 100%;
-  width: 40%;
+  min-width: 0;
   background-color: #1EA54E;
   border-radius: 10px;
-  animation: fillProgress 1.5s ease-out forwards;
-  @include transition(width);
-}
-
-@keyframes fillProgress {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 40%;
-  }
+  transition: width 0.8s ease-out;
 }
 
 .milestones {

@@ -2,7 +2,21 @@
  * Mock data for dashboard matching the design
  */
 
-export const mockTimelineMilestones = [
+import type { FC, SVGProps } from 'react';
+import StatIcon1 from '../assets/svg/statIcon1.svg?react';
+import StatIcon2 from '../assets/svg/stat2.svg?react';
+import StatIcon3 from '../assets/svg/state3.svg?react';
+import StatIcon4 from '../assets/svg/state4.svg?react';
+import StatIcon5 from '../assets/svg/stat5.svg?react';
+
+export interface TimelineMilestoneMock {
+  id: string;
+  date: string;
+  label: string;
+  status: 'completed' | 'current' | 'upcoming';
+}
+
+export const mockTimelineMilestones: TimelineMilestoneMock[] = [
   { id: '1', date: 'Mar 17', label: 'Kickoff Workshop', status: 'completed' as const },
   { id: '2', date: 'March 18', label: 'Data Collection', status: 'completed' as const },
   { id: '3', date: 'May 22', label: 'Initial Phase', status: 'current' as const },
@@ -10,6 +24,26 @@ export const mockTimelineMilestones = [
   { id: '5', date: 'Jun 18', label: 'Completion Reviews', status: 'upcoming' as const },
   { id: '6', date: 'August 21', label: 'Cycle Conclusion', status: 'upcoming' as const },
 ];
+
+export const mockTimelineByYear: Record<string, TimelineMilestoneMock[]> = {
+  '2024': [
+    { id: '1', date: 'Jan 10', label: 'Kickoff Workshop', status: 'completed' as const },
+    { id: '2', date: 'Feb 15', label: 'Data Collection', status: 'completed' as const },
+    { id: '3', date: 'Apr 20', label: 'Initial Phase', status: 'completed' as const },
+    { id: '4', date: 'Jun 12', label: 'Verification', status: 'completed' as const },
+    { id: '5', date: 'Aug 18', label: 'Completion Reviews', status: 'completed' as const },
+    { id: '6', date: 'Oct 21', label: 'Cycle Conclusion', status: 'completed' as const },
+  ],
+  '2025': [
+    { id: '1', date: 'Mar 17', label: 'Kickoff Workshop', status: 'completed' as const },
+    { id: '2', date: 'April 18', label: 'Data Collection', status: 'completed' as const },
+    { id: '3', date: 'Jun 22', label: 'Initial Phase', status: 'completed' as const },
+    { id: '4', date: 'Jul 23', label: 'Verification', status: 'current' as const },
+    { id: '5', date: 'Sep 18', label: 'Completion Reviews', status: 'upcoming' as const },
+    { id: '6', date: 'Nov 21', label: 'Cycle Conclusion', status: 'upcoming' as const },
+  ],
+  '2026': mockTimelineMilestones,
+};
 
 export const mockStatistics = {
   overallProgress: '78.65%',
@@ -19,6 +53,52 @@ export const mockStatistics = {
   evidenceCompleted: 302,
   uploadedToDGA: 258,
 };
+
+export interface StatCardConfig {
+  id: string;
+  icon: FC<SVGProps<SVGSVGElement>>;
+  label: string;
+  valueKey: keyof typeof mockStatistics;
+}
+
+export const statCardsConfig: StatCardConfig[] = [
+  {
+    id: 'overall-progress',
+    icon: StatIcon1,
+    label: 'Overall Progress',
+    valueKey: 'overallProgress',
+  },
+  {
+    id: 'total-criteria',
+    icon: StatIcon2,
+    label: 'Total Criteria',
+    valueKey: 'totalCriteria',
+  },
+  {
+    id: 'completed-criteria',
+    icon: StatIcon3,
+    label: 'Completed Criteria',
+    valueKey: 'completedCriteria',
+  },
+  {
+    id: 'evidence-documents',
+    icon: StatIcon4,
+    label: 'Evidence Documents',
+    valueKey: 'evidenceDocuments',
+  },
+  {
+    id: 'evidence-completed',
+    icon: StatIcon5,
+    label: 'Evidence (Completed)',
+    valueKey: 'evidenceCompleted',
+  },
+  {
+    id: 'uploaded-to-dga',
+    icon: StatIcon1,
+    label: 'Uploaded To DGA',
+    valueKey: 'uploadedToDGA',
+  },
+];
 
 export const mockProgressColumns = [
   // Column 1: 3 categories

@@ -1,15 +1,75 @@
-/**
- * Hook to fetch and manage dashboard data
- * Currently using static mock data - ready for API integration
- */
+import { useState, useEffect, useCallback } from 'react';
+import { fetchDashboardData, isApiError, type DashboardApiResponse } from '../services/dashboard.api';
 
-export function useDashboardData() {
-  // This hook is kept for future real API integration
-  // Currently the Dashboard page uses mock data directly
-  return {
+interface UseDashboardDataState {
+  data: DashboardApiResponse | null;
+  loading: boolean;
+  error: string | null;
+}
+
+interface UseDashboardDataReturn extends UseDashboardDataState {
+  refetch: () => Promise<void>;
+}
+
+export function useDashboardData(): UseDashboardDataReturn {
+  const [state, setState] = useState<UseDashboardDataState>({
     data: null,
-    loading: false,
+    loading: true,
     error: null,
-    refetch: () => {},
+  });
+
+  const refetch = useCallback(async () => {
+    setState((prev) => ({ ...prev, loading: true, error: null }));
+
+    const response = await fetchDashboardData();
+
+    if (isApiError(response)) {
+      setState({
+        data: null,
+        loading: false,
+        error: response.error,
+      });
+    } else {
+      setState({
+        data: response.data,
+        loading: false,
+        error: null,
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    (async () => {
+      setState((prev) => ({ ...prev, loading: true, error: null }));
+
+      const response = await fetchDashboardData();
+
+      if (isMounted) {
+        if (isApiError(response)) {
+          setState({
+            data: null,
+            loading: false,
+            error: response.error,
+          });
+        } else {
+          setState({
+            data: response.data,
+            loading: false,
+            error: null,
+          });
+        }
+      }
+    })();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  return {
+    ...state,
+    refetch,
   };
 }

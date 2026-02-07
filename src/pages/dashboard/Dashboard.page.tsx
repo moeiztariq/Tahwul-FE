@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { ProjectTimeline } from '../../features/dashboard/components/ProjectTimeline';
 import { StatCard } from '../../features/dashboard/components/StatCard';
 import { ProgressStatusGrid } from '../../features/dashboard/components/ProgressStatusGrid';
@@ -17,33 +16,15 @@ import {
   ActivitiesSkeleton,
   AuditSkeleton,
 } from '../../features/dashboard/components/DashboardSkeletons';
-import {
-  mockTimelineMilestones,
-  mockStatistics,
-  mockProgressColumns,
-  mockPerformanceLeaders,
-  mockPerformanceData,
-  mockRecentActivities,
-} from '../../mocks/dashboard.mock';
-import StatIcon1 from '../../assets/svg/statIcon1.svg?react';
-import StatIcon2 from '../../assets/svg/stat2.svg?react';
-import StatIcon3 from '../../assets/svg/state3.svg?react';
-import StatIcon4 from '../../assets/svg/state4.svg?react';
-import StatIcon5 from '../../assets/svg/stat5.svg?react';
+import { ErrorState } from '../../components/ui/ErrorState';
+import { useDashboardData } from '../../features/dashboard/hooks/useDashboardData';
+import { statCardsConfig } from '../../mocks/dashboard.mock';
 import styles from './Dashboard.page.module.scss';
 
 export function DashboardPage() {
-  const [isLoading, setIsLoading] = useState(true);
+  const { data, loading, error, refetch } = useDashboardData();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
+  if (loading) {
     return (
       <div className={styles.page}>
         <TimelineSkeleton />
@@ -77,44 +58,47 @@ export function DashboardPage() {
       </div>
     );
   }
-  return (
-    <div className={styles.page}>
-      <ProjectTimeline year="2026" milestones={mockTimelineMilestones} />
 
-      <div className={styles.statsGrid}>
-        <StatCard
-          icon={StatIcon1}
-          value={mockStatistics.overallProgress}
-          label="Overall Progress"
-        />
-        <StatCard
-          icon={StatIcon2}
-          value={mockStatistics.totalCriteria}
-          label="Total Criteria"
-        />
-        <StatCard
-          icon={StatIcon3}
-          value={mockStatistics.completedCriteria}
-          label="Completed Criteria"
-        />
-        <StatCard
-          icon={StatIcon4}
-          value={mockStatistics.evidenceDocuments}
-          label="Evidence Documents"
-        />
-        <StatCard
-          icon={StatIcon5}
-          value={mockStatistics.evidenceCompleted}
-          label="Evidence (Completed)"
-        />
-        <StatCard
-          icon={StatIcon1}
-          value={mockStatistics.uploadedToDGA}
-          label="Uploaded To DGA"
+  if (error) {
+    return (
+      <div className={styles.page}>
+        <ErrorState 
+          title="Failed to load dashboard"
+          message={error}
+          onRetry={refetch}
         />
       </div>
+    );
+  }
 
-      <ProgressStatusGrid columns={mockProgressColumns} />
+  if (!data) {
+    return (
+      <div className={styles.page}>
+        <ErrorState 
+          title="No data available"
+          message="Dashboard data is not available at the moment."
+          onRetry={refetch}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.page}>
+      <ProjectTimeline year="2026" timelineByYear={data.timelineByYear} />
+
+      <div className={styles.statsGrid}>
+        {statCardsConfig.map((stat) => (
+          <StatCard
+            key={stat.id}
+            icon={stat.icon}
+            value={data.statistics[stat.valueKey]}
+            label={stat.label}
+          />
+        ))}
+      </div>
+
+      <ProgressStatusGrid columns={data.progressColumns} />
 
       <div className={styles.bottomGrid}>
         <div className={styles.complianceSection}>
@@ -122,16 +106,16 @@ export function DashboardPage() {
         </div>
 
         <div className={styles.leadersSection}>
-          <PerformanceLeaders leaders={mockPerformanceLeaders} />
+          <PerformanceLeaders leaders={data.performanceLeaders} />
         </div>
 
         <div className={styles.rightColumn}>
-          <RecentActivities data={mockRecentActivities} height="100%" />
+          <RecentActivities data={data.recentActivities} height="100%" />
           <AuditReadiness readinessLevel={80} overdueStats={12} missingEvidence={5} />
         </div>
 
         <div className={styles.performanceChartSection}>
-          <PerformanceChart data={mockPerformanceData} />
+          <PerformanceChart data={data.performanceData} />
         </div>
       </div>
     </div>

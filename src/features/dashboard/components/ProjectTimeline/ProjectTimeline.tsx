@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -17,13 +17,49 @@ interface TimelineMilestone {
 
 interface ProjectTimelineProps {
   year: string;
-  milestones: TimelineMilestone[];
+  timelineByYear: Record<string, TimelineMilestone[]>;
 }
 
 const YEAR_OPTIONS = ['2024', '2025', '2026'];
 
-export function ProjectTimeline({ year, milestones }: ProjectTimelineProps) {
+function getProgressFromMilestones(milestones: TimelineMilestone[]): number {
+  if (milestones.length === 0) return 0;
+  const total = milestones.length;
+  const completed = milestones.filter((m) => m.status === 'completed').length;
+  const current = milestones.filter((m) => m.status === 'current').length;
+  const progress = ((completed + current * 0.1) / total) * 100;
+  return Math.min(100, Math.round(progress * 10) / 10);
+}
+
+export function ProjectTimeline({ year, timelineByYear }: ProjectTimelineProps) {
   const [selectedYear, setSelectedYear] = useState(year);
+  const [displayProgress, setDisplayProgress] = useState(0);
+
+  useEffect(() => {
+    setSelectedYear(year);
+  }, [year]);
+
+  const milestones = useMemo(
+    () => timelineByYear[selectedYear] ?? [],
+    [timelineByYear, selectedYear]
+  );
+
+  const progressPercent = useMemo(
+    () => getProgressFromMilestones(milestones),
+    [milestones]
+  );
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      setDisplayProgress(progressPercent);
+    });
+    return () => cancelAnimationFrame(id);
+  }, [progressPercent]);
+
+  const yearOptions = useMemo(
+    () => YEAR_OPTIONS.filter((y) => y in timelineByYear),
+    [timelineByYear]
+  );
 
   return (
     <div className={styles.container}>
@@ -40,7 +76,7 @@ export function ProjectTimeline({ year, milestones }: ProjectTimelineProps) {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuRadioGroup value={selectedYear} onValueChange={setSelectedYear}>
-              {YEAR_OPTIONS.map((yearOption) => (
+              {(yearOptions.length > 0 ? yearOptions : YEAR_OPTIONS).map((yearOption) => (
                 <DropdownMenuRadioItem key={yearOption} value={yearOption}>
                   {yearOption}
                 </DropdownMenuRadioItem>
@@ -52,7 +88,10 @@ export function ProjectTimeline({ year, milestones }: ProjectTimelineProps) {
       
       <div className={styles.timeline}>
         <div className={styles.progressBar}>
-          <div className={styles.progressFill} />
+          <div
+            className={styles.progressFill}
+            style={{ width: `${displayProgress}%` }}
+          />
         </div>
         
         <div className={styles.milestones}>

@@ -33,6 +33,12 @@ const navigation: NavItem[] = [
 ];
 
 export function Sidebar({ isOpen, onToggle }: SidebarProps) {
+  const handleLinkClick = () => {
+    if (window.innerWidth <= 768) {
+      onToggle();
+    }
+  };
+
   return (
     <aside className={clsx(styles.sidebar, !isOpen && styles.closed)}>
       <div className={styles.header}>
@@ -56,6 +62,7 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
               <li key={item.path}>
                 <NavLink
                   to={item.path}
+                  onClick={handleLinkClick}
                   className={({ isActive }) =>
                     clsx(styles.navLink, isActive && styles.active)
                   }

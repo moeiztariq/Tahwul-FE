@@ -7,10 +7,22 @@
 }
 
 .statsGrid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: $spacing-4;
   margin-bottom: $spacing-6;
-  flex-wrap: wrap;
+
+  @media (max-width: $breakpoint-xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .bottomGrid {
