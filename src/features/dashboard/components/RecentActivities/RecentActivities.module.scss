@@ -6,6 +6,15 @@
   padding: $spacing-6;
   border-radius: 10px;
   border: 1px solid $color-project-border;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-4;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-3;
+  }
 }
 
 .title {
@@ -13,6 +22,11 @@
   font-weight: 700;
   color: $color-project-primary;
   margin: 0 0 $spacing-6;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 14px;
+    margin-bottom: $spacing-4;
+  }
 }
 
 .list {
@@ -27,13 +41,13 @@
   align-items: flex-start;
   padding-top: $spacing-4;
   padding-bottom: $spacing-4;
-
   border-top: 1px solid $color-project-border;
-  
-//   &:first-child {
-//     padding-top: 0;
-//     border-top: none;
-//   }
+
+  @media (max-width: $breakpoint-md) {
+    gap: $spacing-2;
+    padding-top: $spacing-3;
+    padding-bottom: $spacing-3;
+  }
 }
 
 .bullet {
@@ -43,11 +57,16 @@
   background-color: #DC2626;
   flex-shrink: 0;
   margin-top: 6px;
+
+  @media (max-width: $breakpoint-md) {
+    margin-top: 5px;
+  }
 }
 
 .content {
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 
 .header {
@@ -56,6 +75,18 @@
   align-items: flex-start;
   gap: $spacing-2;
   margin-bottom: 4px;
+  min-width: 0;
+
+  @media (max-width: $breakpoint-md) {
+    flex-wrap: wrap;
+    gap: $spacing-1;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-1;
+  }
 }
 
 .activityTitle {
@@ -63,6 +94,14 @@
   font-weight: 600;
   color: $color-project-primary;
   margin: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 13px;
+    flex: 1;
+    min-width: 0;
+  }
 }
 
 .time {
@@ -70,10 +109,26 @@
   color: $color-project-secondary;
   white-space: nowrap;
   flex-shrink: 0;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 11px;
+    width: 100%;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 11px;
+    white-space: normal;
+  }
 }
 
 .description {
   font-size: 14px;
   color: $color-project-secondary;
   margin: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 13px;
+  }
 }
